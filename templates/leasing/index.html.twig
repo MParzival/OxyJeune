@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Leasing index{% endblock %}
+
+{% block body %}
+    <h1>Leasing index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>StartDate</th>
+                <th>EndDate</th>
+                <th>RentalTime</th>
+                <th>AmountPaid</th>
+                <th>AmountDeposit</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for leasing in leasings %}
+            <tr>
+                <td>{{ leasing.id }}</td>
+                <td>{{ leasing.startDate ? leasing.startDate|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ leasing.endDate ? leasing.endDate|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ leasing.rentalTime }}</td>
+                <td>{{ leasing.amountPaid }}</td>
+                <td>{{ leasing.amountDeposit }}</td>
+                <td>
+                    <a href="{{ path('leasing_show', {'id': leasing.id}) }}">show</a>
+                    <a href="{{ path('leasing_edit', {'id': leasing.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('leasing_new') }}">Create new</a>
+{% endblock %}

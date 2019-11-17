@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Leasing{% endblock %}
+
+{% block body %}
+    <h1>Leasing</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ leasing.id }}</td>
+            </tr>
+            <tr>
+                <th>StartDate</th>
+                <td>{{ leasing.startDate ? leasing.startDate|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>EndDate</th>
+                <td>{{ leasing.endDate ? leasing.endDate|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>RentalTime</th>
+                <td>{{ leasing.rentalTime }}</td>
+            </tr>
+            <tr>
+                <th>AmountPaid</th>
+                <td>{{ leasing.amountPaid }}</td>
+            </tr>
+            <tr>
+                <th>AmountDeposit</th>
+                <td>{{ leasing.amountDeposit }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('leasing_index') }}">back to list</a>
+
+    <a href="{{ path('leasing_edit', {'id': leasing.id}) }}">edit</a>
+
+    {{ include('leasing/_delete_form.html.twig') }}
+{% endblock %}

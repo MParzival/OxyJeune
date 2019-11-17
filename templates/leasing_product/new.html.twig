@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New LeasingProduct{% endblock %}
+
+{% block body %}
+    <h1>Create new LeasingProduct</h1>
+
+    {{ include('leasing_product/_form.html.twig') }}
+
+    <a href="{{ path('leasing_product_index') }}">back to list</a>
+{% endblock %}

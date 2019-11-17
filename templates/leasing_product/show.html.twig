@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}LeasingProduct{% endblock %}
+
+{% block body %}
+    <h1>LeasingProduct</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ leasing_product.id }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('leasing_product_index') }}">back to list</a>
+
+    <a href="{{ path('leasing_product_edit', {'id': leasing_product.id}) }}">edit</a>
+
+    {{ include('leasing_product/_delete_form.html.twig') }}
+{% endblock %}

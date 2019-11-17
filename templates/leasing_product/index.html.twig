@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}LeasingProduct index{% endblock %}
+
+{% block body %}
+    <h1>LeasingProduct index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for leasing_product in leasing_products %}
+            <tr>
+                <td>{{ leasing_product.id }}</td>
+                <td>
+                    <a href="{{ path('leasing_product_show', {'id': leasing_product.id}) }}">show</a>
+                    <a href="{{ path('leasing_product_edit', {'id': leasing_product.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="2">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('leasing_product_new') }}">Create new</a>
+{% endblock %}
