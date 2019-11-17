@@ -11,6 +11,7 @@
                 <th>Id</th>
                 <th>Price</th>
                 <th>HalfDayNumber</th>
+                <th>DayNumber</th>
                 <th>actions</th>
             </tr>
         </thead>
@@ -20,9 +21,17 @@
                 <td>{{ rate.id }}</td>
                 <td>{{ rate.price }}</td>
                 <td>{{ rate.halfDayNumber }}</td>
+                <td>{{ rate.dayNumber }}</td>
                 <td>
-                    <a href="{{ path('rate_show', {'id': rate.id}) }}">show</a>
-                    <a href="{{ path('rate_edit', {'id': rate.id}) }}">edit</a>
+                    <a href="{{ path('rate_edit', {'id': rate.id}) }}" class="btn btn-sm btn-primary">edit</a>
+                    <div class="btn-group">
+                        <form method="post" action="{{ path('rate_delete', {'id': rate.id}) }}" onsubmit="return confirm('Are you sure you want to delete this item?');">
+                            <input type="hidden" name="_method" value="DELETE">
+                            <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ rate.id) }}">
+                            <button class="btn btn-sm btn-danger">Delete</button>
+                        </form>
+                    </div>
+
                 </td>
             </tr>
         {% else %}

@@ -67,6 +67,14 @@ class ProductController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+
+//            // on verifie si la photo qui à été uploadé est une instance d'UploadedFile et non File
+//            // si oui il faudra supprimé la photo au niveau du cache (injection du cacheManager du bundle LippImagine)
+//            if ($product->getImageFile() instanceof UploadedFile){
+//                // on supprime un fichier qui a été mis en cache en lui passant le chemin de l'image
+//                // grace au helper (UploaderHelper du bundle vichUploader)
+//                $manager->remove($helper->asset($product, 'imageFile'));
+//            }
             $this->getDoctrine()->getManager()->flush();
 
             return $this->redirectToRoute('product_index');

@@ -5,9 +5,15 @@ namespace App\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Exception;
+use Symfony\Component\HttpFoundation\File\File;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\ProductRepository")
+ * @Vich\Uploadable()
  */
 class Product
 {
@@ -18,6 +24,20 @@ class Product
      */
     private $id;
 
+    /**
+     * @var string|null
+     * @ORM\Column(type="string", length=255)
+     *
+     */
+    private $filename;
+    /**
+     * @var File|null
+     * @Assert\Image(
+     *     mimeTypes="image/jpeg"
+     * )
+     * @Vich\UploadableField(mapping="products", fileNameProperty="filename")
+     */
+    private $imageFile;
     /**
      * @ORM\Column(type="string", length=100)
      */
@@ -73,6 +93,11 @@ class Product
      */
     private $idCategory;
 
+    /**
+     * @ORM\Column(type="datetime")
+     */
+    private $update_at;
+
     public function __construct()
     {
         $this->leasingProducts = new ArrayCollection();
@@ -81,6 +106,46 @@ class Product
     public function getId(): ?int
     {
         return $this->id;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getFilename(): ?string
+    {
+        return $this->filename;
+    }
+
+    /**
+     * @param string|null $filename
+     * @return Product
+     */
+    public function setFilename(?string $filename): Product
+    {
+        $this->filename = $filename;
+        return $this;
+    }
+
+    /**
+     * @return File|null
+     */
+    public function getImageFile(): ?File
+    {
+        return $this->imageFile;
+    }
+
+    /**
+     * @param File|null $imageFile
+     * @return Product
+     * @throws Exception
+     */
+    public function setImageFile(?File $imageFile): Product
+    {
+        $this->imageFile = $imageFile;
+        if ($this->imageFile instanceof UploadedFile){
+            $this->update_at = new \DateTime('now');
+        }
+        return $this;
     }
 
     public function getLabel(): ?string
@@ -230,6 +295,30 @@ class Product
     public function setIdCategory(?Category $idCategory): self
     {
         $this->idCategory = $idCategory;
+
+        return $this;
+    }
+
+    public function getUpdatedAt(): ?\DateTimeInterface
+    {
+        return $this->updated_at;
+    }
+
+    public function setUpdatedAt(\DateTimeInterface $updated_at): self
+    {
+        $this->updated_at = $updated_at;
+
+        return $this;
+    }
+
+    public function getUpdateAt(): ?\DateTimeInterface
+    {
+        return $this->update_at;
+    }
+
+    public function setUpdateAt(\DateTimeInterface $update_at): self
+    {
+        $this->update_at = $update_at;
 
         return $this;
     }

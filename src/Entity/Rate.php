@@ -24,9 +24,14 @@ class Rate
     private $price;
 
     /**
-     * @ORM\Column(type="integer")
-     */
+ * @ORM\Column(type="integer")
+ */
     private $halfDayNumber;
+
+    /**
+     * @ORM\Column(type="float")
+     */
+    private $DayNumber;
 
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\Product", mappedBy="idRate")
@@ -64,6 +69,24 @@ class Rate
     {
         $this->halfDayNumber = $halfDayNumber;
 
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getDayNumber()
+    {
+        return $this->DayNumber;
+    }
+
+    /**
+     * @param mixed $DayNumber
+     * @return Rate
+     */
+    public function setDayNumber($DayNumber)
+    {
+        $this->DayNumber = $DayNumber;
         return $this;
     }
 

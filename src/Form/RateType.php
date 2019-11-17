@@ -14,6 +14,7 @@ class RateType extends AbstractType
         $builder
             ->add('price')
             ->add('halfDayNumber')
+            ->add('dayNumber')
         ;
     }
 

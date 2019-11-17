@@ -8,6 +8,7 @@ use App\Entity\Product;
 use App\Entity\Rate;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -23,9 +24,8 @@ class ProductType extends AbstractType
             ->add('isChild')
             ->add('isElectric')
             ->add('isActive')
-            ->add('idRate',EntityType::class,[
-                'class'=>Rate::class,
-                'choice_label'=>'price'
+            ->add('imageFile', FileType::class,[
+                'required' => false,
             ])
             ->add('idModel',EntityType::class,[
                 'class'=>Model::class,

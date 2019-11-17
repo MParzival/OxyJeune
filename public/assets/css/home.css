@@ -1,0 +1,35 @@
+.tableRate {
+    display: table;
+    border-collapse: separate;
+    border-spacing: 2px;
+    border-color: grey;
+    box-shadow: 0 0 10px 2px #123;
+    width: 800px;
+}
+
+tbody {
+    display: table-row-group;
+    vertical-align: middle;
+    border-color: inherit;
+}
+
+.colorVertf{
+    color: limegreen;
+    font-style: oblique;
+}
+
+.vertf {
+    background: none repeat scroll 0 0 #D7FF75;
+    text-align: center;
+}
+
+.vertc {
+    background: none repeat scroll 0 0 #E6FFA9;
+    text-align: center;
+}
+
+tr {
+    display: table-row;
+    vertical-align: inherit;
+    border-color: inherit;
+}

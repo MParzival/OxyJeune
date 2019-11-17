@@ -39,6 +39,15 @@
                 <th>IsActive</th>
                 <td>{{ product.isActive ? 'Yes' : 'No' }}</td>
             </tr>
+            {% if  product.filename %}
+                <tr>
+                    <th>Photo</th>
+                    <td>
+                        <img src="{{ vich_uploader_asset(product, 'imageFile') | imagine_filter('thumb') }}" alt="productImage">
+                    </td>
+                </tr>
+            {% endif %}
+
         </tbody>
     </table>
 
