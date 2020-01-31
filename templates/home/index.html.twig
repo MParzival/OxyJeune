@@ -3,108 +3,51 @@
 {% block title %}Hello HomeController!{% endblock %}
 
 {% block body %}
-    <h1 class="colorVertf">Tarifs Location Vélo, VTT, VTC</h1>
-    <p style="margin-left: 475px">(prix en euros)</p>
-    <table class="table tableRate mt-4" >
-        <tbody>
-            <tr class="vertf">
-                <th>&nbsp;</th>
-                <th>Enfant</th>
-                <th>Adulte</th>
-                <th>remorque</th>
-                <th>Cyclotourisme</th>
-                <th>Vélo assistance éléctrique</th>
-                <th>Porte-bébé</th>
-            </tr>
-            <tr class="vertc">
-               <th>1/2journée</th>
-                {% for rate in rates  %}
-                    {% if rate.dayNumber < 1 %}
-                        {% if rate.price == 0 %}
-                            <th>minimum 2 jours</th>
-                        {% else %}
-                            <th>{{ rate.price }}</th>
-                        {% endif %}
-                    {% endif %}
-                {% endfor %}
-            </tr>
-            <tr class="vertf">
-                <th>1 jour</th>
-                {% for rate in rates  %}
-                    {% if rate.dayNumber == 1 %}
-                        {% if rate.price == 0 %}
-                            <th>minimum 2 jours</th>
-                            {% else %}
-                            <th>{{ rate.price }}</th>
-                        {% endif %}
 
-                    {% endif %}
-                {% endfor %}
-            </tr>
-            <tr class="vertc">
-                <th>2 jours</th>
-                {% for rate in rates  %}
-                    {% if rate.dayNumber == 2 %}
-                        <th>{{ rate.price }}</th>
-                    {% endif %}
-                {% endfor %}
-            </tr>
-            <tr class="vertf">
-                <th>3 jours</th>
-                {% for rate in rates  %}
-                    {% if rate.dayNumber == 3 %}
-                        <th>{{ rate.price }}</th>
-                    {% endif %}
-                {% endfor %}
-            </tr>
-            <tr class="vertc">
-                <th>4 jours</th>
-                {% for rate in rates  %}
-                    {% if rate.dayNumber == 4 %}
-                        <th>{{ rate.price }}</th>
-                    {% endif %}
-                {% endfor %}
-            </tr>
-            <tr class="vertf">
-                <th>5 jours</th>
-                {% for rate in rates  %}
-                    {% if rate.dayNumber == 5 %}
-                        <th>{{ rate.price }}</th>
-                    {% endif %}
-                {% endfor %}
-            </tr>
-            <tr class="vertc">
-                <th>6/7 jours</th>
-                {% for rate in rates  %}
-                    {% if rate.dayNumber == 6 %}
-                        <th>{{ rate.price }}</th>
-                    {% endif %}
-                {% endfor %}
-            </tr>
-            <tr class="vertf">
-                <th>2 semaines</th>
-                {% for rate in rates  %}
-                    {% if rate.dayNumber == 14 %}
-                        <th>{{ rate.price }}</th>
-                    {% endif %}
-                {% endfor %}
-            </tr>
-            <tr class="vertc">
-                <th>3 semaines</th>
-                {% for rate in rates  %}
-                    {% if rate.dayNumber == 21 %}
-                        <th>{{ rate.price }}</th>
-                    {% endif %}
-                {% endfor %}
-            </tr>
-            <tr class="vertf">
-                <th>1 mois</th>
-                {% for rate in rates  %}
-                    {% if rate.dayNumber == 31 %}
-                        <th>{{ rate.price }}</th>
-                    {% endif %}
-                {% endfor %}
-            </tr>
-        </tbody>
-    </table>
+<footer class="container py-5">
+<div class="row">
+    <div class="col-12 col-md">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="d-block mb-2" role="img" viewBox="0 0 24 24" focusable="false"><title>Product</title><circle cx="12" cy="12" r="10"/><path d="M14.31 8l5.74 9.94M9.69 8h11.48M7.38 12l5.74-9.94M9.69 16L3.95 6.06M14.31 16H2.83m13.79-4l-5.74 9.94"/></svg>
+    <small class="d-block mb-3 text-muted">&copy; 2017-2019</small>
+    </div>
+    <div class="col-6 col-md">
+    <h5>Features</h5>
+    <ul class="list-unstyled text-small">
+        <li><a class="text-muted" href="#">Cool stuff</a></li>
+        <li><a class="text-muted" href="#">Random feature</a></li>
+        <li><a class="text-muted" href="#">Team feature</a></li>
+        <li><a class="text-muted" href="#">Stuff for developers</a></li>
+        <li><a class="text-muted" href="#">Another one</a></li>
+        <li><a class="text-muted" href="#">Last time</a></li>
+    </ul>
+    </div>
+    <div class="col-6 col-md">
+    <h5>Resources</h5>
+    <ul class="list-unstyled text-small">
+        <li><a class="text-muted" href="#">Resource</a></li>
+        <li><a class="text-muted" href="#">Resource name</a></li>
+        <li><a class="text-muted" href="#">Another resource</a></li>
+        <li><a class="text-muted" href="#">Final resource</a></li>
+    </ul>
+    </div>
+    <div class="col-6 col-md">
+    <h5>Resources</h5>
+    <ul class="list-unstyled text-small">
+        <li><a class="text-muted" href="#">Business</a></li>
+        <li><a class="text-muted" href="#">Education</a></li>
+        <li><a class="text-muted" href="#">Government</a></li>
+        <li><a class="text-muted" href="#">Gaming</a></li>
+    </ul>
+    </div>
+    <div class="col-6 col-md">
+    <h5>About</h5>
+    <ul class="list-unstyled text-small">
+        <li><a class="text-muted" href="#">Team</a></li>
+        <li><a class="text-muted" href="#">Locations</a></li>
+        <li><a class="text-muted" href="#">Privacy</a></li>
+        <li><a class="text-muted" href="#">Terms</a></li>
+    </ul>
+    </div>
+</div>
+</footer>
 {% endblock %}
