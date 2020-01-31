@@ -1,0 +1,104 @@
+{# <h1 class="colorVertf">Tarifs Location Vélo, VTT, VTC</h1>
+    <p style="margin-left: 475px">(prix en euros)</p>
+    <table class="table tableRate mt-4" >
+        <tbody>
+            <tr class="vertf">
+                <th>&nbsp;</th>
+                <th>Enfant</th>
+                <th>Adulte</th>
+                <th>remorque</th>
+                <th>Cyclotourisme</th>
+                <th>Vélo assistance éléctrique</th>
+                <th>Porte-bébé</th>
+            </tr>
+            <tr class="vertc">
+               <th>1/2journée</th>
+                {% for rate in rates  %}
+                    {% if rate.dayNumber < 1 %}
+                        {% if rate.price == 0 %}
+                            <th>minimum 2 jours</th>
+                        {% else %}
+                            <th>{{ rate.price }}</th>
+                        {% endif %}
+                    {% endif %}
+                {% endfor %}
+            </tr>
+            <tr class="vertf">
+                <th>1 jour</th>
+                {% for rate in rates  %}
+                    {% if rate.dayNumber == 1 %}
+                        {% if rate.price == 0 %}
+                            <th>minimum 2 jours</th>
+                            {% else %}
+                            <th>{{ rate.price }}</th>
+                        {% endif %}
+
+                    {% endif %}
+                {% endfor %}
+            </tr>
+            <tr class="vertc">
+                <th>2 jours</th>
+                {% for rate in rates  %}
+                    {% if rate.dayNumber == 2 %}
+                        <th>{{ rate.price }}</th>
+                    {% endif %}
+                {% endfor %}
+            </tr>
+            <tr class="vertf">
+                <th>3 jours</th>
+                {% for rate in rates  %}
+                    {% if rate.dayNumber == 3 %}
+                        <th>{{ rate.price }}</th>
+                    {% endif %}
+                {% endfor %}
+            </tr>
+            <tr class="vertc">
+                <th>4 jours</th>
+                {% for rate in rates  %}
+                    {% if rate.dayNumber == 4 %}
+                        <th>{{ rate.price }}</th>
+                    {% endif %}
+                {% endfor %}
+            </tr>
+            <tr class="vertf">
+                <th>5 jours</th>
+                {% for rate in rates  %}
+                    {% if rate.dayNumber == 5 %}
+                        <th>{{ rate.price }}</th>
+                    {% endif %}
+                {% endfor %}
+            </tr>
+            <tr class="vertc">
+                <th>6/7 jours</th>
+                {% for rate in rates  %}
+                    {% if rate.dayNumber == 6 %}
+                        <th>{{ rate.price }}</th>
+                    {% endif %}
+                {% endfor %}
+            </tr>
+            <tr class="vertf">
+                <th>2 semaines</th>
+                {% for rate in rates  %}
+                    {% if rate.dayNumber == 14 %}
+                        <th>{{ rate.price }}</th>
+                    {% endif %}
+                {% endfor %}
+            </tr>
+            <tr class="vertc">
+                <th>3 semaines</th>
+                {% for rate in rates  %}
+                    {% if rate.dayNumber == 21 %}
+                        <th>{{ rate.price }}</th>
+                    {% endif %}
+                {% endfor %}
+            </tr>
+            <tr class="vertf">
+                <th>1 mois</th>
+                {% for rate in rates  %}
+                    {% if rate.dayNumber == 31 %}
+                        <th>{{ rate.price }}</th>
+                    {% endif %}
+                {% endfor %}
+            </tr>
+        </tbody>
+    </table> #}
